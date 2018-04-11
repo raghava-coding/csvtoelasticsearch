@@ -17,10 +17,10 @@ public class DataLoader {
     private JestClient jestClient;
     private static final Logger logger = Logger.getLogger("CsvParser");
 
-    public DataLoader() {
+    public DataLoader(String cluster) {
         JestClientFactory factory = new JestClientFactory();
         factory.setHttpClientConfig(new HttpClientConfig
-                .Builder("http://localhost:9203")
+                .Builder(cluster)
                 .multiThreaded(true)
                 .build());
         jestClient = factory.getObject();

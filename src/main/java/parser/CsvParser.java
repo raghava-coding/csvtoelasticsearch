@@ -21,12 +21,12 @@ public class CsvParser {
     }
 
     public <T> List<T> loadObjectList(Class<T> type, String fileName) {
-        CsvSchema schema = mapper.schemaFor(type);
+        CsvSchema schema = CsvSchema.emptySchema().withHeader();
         try {
-            MappingIterator<T> booksIt = mapper.readerFor(type).with(schema).readValues(new File(fileName));
-            return booksIt.readAll();
+            MappingIterator<T> iterator = mapper.readerFor(type).with(schema).readValues(new File(fileName));
+            return iterator.readAll();
         } catch (IOException e) {
-            logger.log(Level.SEVERE, e.getMessage(),e.getStackTrace());
+            logger.log(Level.SEVERE, e.getMessage(), e.getStackTrace());
         }
         return new ArrayList<T>();
     }
