@@ -1,4 +1,4 @@
-# csvtoelasticsearch
+# Load csv dataset into elasticsearch
 
 This project is implemented to load dataset from https://github.com/zygmuntz/goodbooks-10k into Elasticsearch to try out 
 https://github.com/appbaseio/reactivesearch.
